@@ -1,0 +1,48 @@
+
+
+<nav class="navbar bg-body-tertiary" style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+    <strong>Store Books</strong>
+    <div class="my-1 ">
+      <a routerLink="/list" (click)="Refresh()"  style="margin-left: 10px; margin-top: 20px;"><button type="button" class="btn btn-primary btn-sm">Home</button> </a>
+      <a routerLink="/form" style="margin-left: 10px; margin-top: 20px;"><button type="button" class="btn btn-primary btn-sm">create book</button> </a>
+    </div>
+    
+  </div>
+</nav>
+
+<div class="input-group flex-nowrap" style="width: 400px; margin-left: 10px; margin-top: 10px;">
+  <input (change)="hundleChange()" [(ngModel)]="searchTitle"  type="text" class="form-control" placeholder="Search Title" aria-label="Username" aria-describedby="addon-wrapping">
+  <input (change)="hundleChange()" [(ngModel)]="searchCategory"  type="text" class="form-control" placeholder="Search Category" aria-label="Username" aria-describedby="addon-wrapping">
+
+</div>
+<div class="input-group flex-nowrap" style="width: 400px; margin-top: 9px;">
+  <input [(ngModel)]="searchAuthor"  type="text" class="form-control" placeholder="Search Author" aria-label="Username" aria-describedby="addon-wrapping"  style="margin-left: 10px;">
+  <button  (click)="hundleChangeAuthor()"   type="button" class="btn btn-primary">search</button> 
+</div>
+
+<table class="table" >
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Auteur</th>
+        <th scope="col">Categories</th>
+        <th scope="col">Title</th>
+        <th scope="col">Isbn</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of listBooks; let i=index;">
+        <th scope="row">{{i+1}}</th>
+        <td>{{book.auteur}}</td>
+        <td>{{book.categories}}</td>
+        <td>{{book.title}}</td>
+        <td>{{book.isbn}}</td>
+        <td><button (click)="OnDelete(book.id)" type="submit" class="btn btn-danger">delete</button>
+         <a routerLink="/form/{{book.id}}" style="margin-left: 10px;"  >  <button   type="button" class="btn btn-primary">update</button></a>
+         <a routerLink="/detail/{{book.id}}" style="margin-left: 10px;"  >  <button   type="button" class="btn btn-success">view</button></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>

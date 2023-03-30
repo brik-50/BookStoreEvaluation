@@ -1,0 +1,53 @@
+
+<nav class="navbar bg-body-tertiary" style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+    <strong>Store Books</strong>
+    <div class="my-1">
+      <a routerLink="/list" style="margin-left: 10px; margin-top: 20px;"><button type="button" class="btn btn-primary btn-sm">Home</button> </a>
+      <a routerLink="/form" style="margin-left: 10px; margin-top: 20px;"><button type="button" class="btn btn-primary btn-sm">create book</button> </a>
+    </div>
+    
+  </div>
+</nav>
+
+
+
+
+  
+  <div style="width: 1000px; margin-left: 500px;">
+    <form #form  (submit)="onSubmit(form)" >
+        <h1 style="margin-left: 150px;"><strong>{{textButton}}</strong></h1>
+        <div class="form-row">
+            <div class="form-floating col-md-6 mb-3">
+              <input type="text" class="form-control" placeholder="Title" name="title" [(ngModel)]="book!.title"  required minlength="3" maxlength="10">
+              <label for="title">Title</label>
+            </div>
+            <div class="form-floating col-md-6 mb-3">
+              <input type="text" class="form-control" placeholder="auteur" name="auteur" [(ngModel)]="book!.auteur">
+              <label for="author">auteur</label>
+            </div>
+            <div class="form-floating col-md-6 mb-3">
+              <input type="text" class="form-control" placeholder="isbn" name="isbn" [(ngModel)]="book!.isbn">
+              <label for="isbn">isbn</label>
+            </div>
+            <div class="form-floating col-md-6 mb-3">
+              <input type="text" class="form-control" placeholder="Categories" name="categories" [(ngModel)]="book!.categories">
+              <label for="categories">Categories</label>
+            </div>
+            <div class="form-floating col-md-6 ">
+              <textarea class="form-control" style="height: 100px" placeholder="Description" name="description" [(ngModel)]="book!.description"></textarea>
+              <label for="description">Description</label>
+            </div>
+          </div>
+     
+      
+   
+      <button  type="submit"  class="btn btn-primary mt-4 " style="margin-left: 150px; width: 200px;" >{{textButton}}</button>
+    </form>
+  
+  
+  
+  
+  
+  </div>
+  

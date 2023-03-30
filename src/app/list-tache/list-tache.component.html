@@ -1,0 +1,36 @@
+<p>list-tache works!</p>
+
+<div class="my-4">
+  <a routerLink="/list" (click)="Refresh()"  style="margin-left: 10px; margin-top: 20px;"><button type="button" class="btn btn-primary btn-sm">list taches</button> </a>
+  <a routerLink="/form" style="margin-left: 10px; margin-top: 20px;"><button type="button" class="btn btn-primary btn-sm">create tache</button> </a>
+</div>
+
+<div class="input-group flex-nowrap" style="width: 400px; margin-left: 10px;">
+  <input (change)="hundleChange()" [(ngModel)]="searchText"  type="text" class="form-control" placeholder="Search" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+
+<table class="table" >
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">date Creation</th>
+        <th scope="col">update date</th>
+        <th scope="col">status</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tache of listTaches; let i=index;">
+        <th scope="row">{{i+1}}</th>
+        <td>{{tache.dateCreation}}</td>
+        <td>{{tache.updateDate}}</td>
+        <td>{{tache.status}}</td>
+        <td><button (click)="OnDelete(tache.id)" type="submit" class="btn btn-danger">delete</button>
+         <a routerLink="/form/{{tache.id}}" style="margin-left: 10px;"  >  <button   type="button" class="btn btn-primary">update</button></a>
+         <a routerLink="/detail/{{tache.id}}" style="margin-left: 10px;"  >  <button   type="button" class="btn btn-success">view</button></a>
+        </td>
+      </tr>
+      
+     
+    </tbody>
+  </table>
